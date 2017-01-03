@@ -54,3 +54,19 @@ struct dns_response {
 	unsigned short int data_len;
 };
 
+
+int getDnsServer(char *addr);
+int getDnsServerIp(char *str, char *addr);
+int fillDnsDetails(struct sockaddr_in *dns_server, char *ip_addr);
+int fillDnsQuery(char *buf, unsigned short int req_type, char *hostaddr, char *hostip);
+void retrieveDnsResponseName(char *resp, char *buf, unsigned int len);
+int retrieveDnsResonse(char *buf,
+		unsigned short req_len,
+		unsigned short response_len,
+		int req_type,
+		char *ip,
+		char *domain_name);
+/*
+ * ****Timer Setup***
+ */
+int waitForDnsReply(int s, int no_of_secs);

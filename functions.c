@@ -205,7 +205,7 @@ int getDnsServer(char *addr) {
 	fp = fopen("/etc/resolv.conf", "r");
 	if(fp == NULL) {
 		printf("Error in file opening\n");
-		return;
+		return -1;
 	}
 	while((ch=fgetc(fp)) != EOF) { 
 		str[i++] = ch;
